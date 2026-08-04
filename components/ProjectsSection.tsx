@@ -88,6 +88,37 @@ const projects: Project[] = [
     borderColor: 'border-cyber-violet/30',
     gradient: 'from-cyber-violet/10 to-pink-600/10',
   },
+  {
+    id: 'zenflow-ai',
+    title: 'ZenFlow-AI',
+    subtitle: 'AI-Powered Mental Wellness Platform',
+    year: '2026',
+    category: 'AI Recommendation Engine',
+    description:
+      'State-aware mental wellness platform driven by a deterministic recommendation engine that analyzes mood, sleep trends, and 40+ biometric tags to generate personalized mindfulness practices.',
+    stack: [
+      'Hono',
+      'TypeScript',
+      'Next.js',
+      'Chart.js',
+      'Prisma',
+      'MongoDB',
+      'TanStack React Query',
+      'Tailwind CSS',
+    ],
+    highlights: [
+      'State-Aware Engine: Prioritizes recovery when sleep-deprived and builds heat when energetic.',
+      'Time-Sensitive Guidance: Suggests morning sun salutations and evening restorative flows.',
+      '7-Day Biometric Trend Analysis: Correlates mood, sleep quality, and wellness KPIs with Chart.js.',
+      'Granular Personalization: Maps 40+ biometric tags to a curated mindfulness activity library via Prisma & MongoDB.',
+    ],
+    architecture: 'Next.js UI -> Hono API Gateway -> Prisma ORM -> Biometric Rules Engine -> MongoDB',
+    repoUrl: 'https://github.com',
+    liveUrl: 'https://example.com',
+    accentColor: 'text-cyber-emerald',
+    borderColor: 'border-cyber-emerald/30',
+    gradient: 'from-cyber-emerald/10 to-teal-600/10',
+  },
 ];
 
 export function ProjectsSection() {
@@ -107,12 +138,12 @@ export function ProjectsSection() {
             Production & <span className="text-gradient-cyan">AI Systems</span>
           </h2>
           <p className="max-w-2xl text-slate-300 text-base">
-            End-to-end engineered applications showcasing LLM integration, geospatial data processing, microservices, and responsible AI guardrails.
+            End-to-end engineered applications showcasing LLM integration, geospatial data processing, microservices, and responsible AI recommendation engines.
           </p>
         </div>
 
         {/* Projects Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, idx) => (
             <motion.div
               key={project.id}

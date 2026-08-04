@@ -63,7 +63,7 @@ export function HeroSection({ performanceMode }: HeroSectionProps) {
     } else if (cmd === 'skills') {
       res = 'Python, FastAPI, LLaMA-3, TypeScript, Next.js, NestJS, PostgreSQL, AWS, Docker';
     } else if (cmd === 'projects') {
-      res = '1. Agrovision (Geospatial AI) | 2. SnapSphere (Microservices Social Media)';
+      res = '1. Agrovision (Geospatial AI) | 2. SnapSphere (Microservices Social) | 3. ZenFlow-AI (Mental Wellness AI)';
     } else if (cmd === 'experience') {
       res = 'Tata Motors Intern (Dec 2024 - Feb 2025): Built TPM platform & ETL reporting pipeline.';
     } else if (cmd === 'rank') {
