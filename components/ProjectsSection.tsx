@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FolderGit2, ExternalLink, Github, ChevronLeft, ChevronRight, Pause, Play, X, CheckCircle2 } from 'lucide-react';
+import { FolderGit2, ExternalLink, Github, Pause, Play, X, CheckCircle2 } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -163,35 +163,18 @@ const projects: Project[] = [
   },
 ];
 
+// Duplicate projects list to achieve seamless infinite circular looping
+const doubleProjects = [...projects, ...projects];
+
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  // Auto-play interval for side-by-side slider
-  useEffect(() => {
-    if (isPaused) return;
-
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % projects.length);
-    }, 3500);
-
-    return () => clearInterval(timer);
-  }, [isPaused]);
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % projects.length);
-  };
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <section id="projects" className="py-24 relative z-20 bg-surface/30 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header & Slider Controls */}
+        {/* Section Header & Status Pill */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-4 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border-cyber-cyan/30 text-xs font-mono text-cyber-cyan">
@@ -206,54 +189,33 @@ export function ProjectsSection() {
             </p>
           </div>
 
-          {/* Navigation Controls */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full glass-panel border-white/10 text-xs font-mono text-slate-300">
-              {isPaused ? (
-                <>
-                  <Pause className="w-3.5 h-3.5 text-amber-400" />
-                  <span className="text-amber-400">PAUSED ON HOVER</span>
-                </>
-              ) : (
-                <>
-                  <Play className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-                  <span className="text-emerald-400">AUTO SLIDING</span>
-                </>
-              )}
-            </div>
-
-            <button
-              onClick={handlePrev}
-              className="p-3 rounded-xl glass-panel hover:border-cyber-cyan text-white hover:text-cyber-cyan transition-colors"
-              title="Previous Project"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="p-3 rounded-xl glass-panel hover:border-cyber-cyan text-white hover:text-cyber-cyan transition-colors"
-              title="Next Project"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+          {/* Status Indicator */}
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-panel border-white/10 text-xs font-mono">
+            {isHovered ? (
+              <>
+                <Pause className="w-4 h-4 text-amber-400" />
+                <span className="text-amber-400 font-bold">PAUSED ON HOVER</span>
+              </>
+            ) : (
+              <>
+                <Play className="w-4 h-4 text-emerald-400 animate-pulse" />
+                <span className="text-emerald-400 font-bold">CIRCULAR INFINITE LOOP</span>
+              </>
+            )}
           </div>
         </div>
 
-        {/* Sliding Side-By-Side Cards Track */}
+        {/* Infinite Seamless Marquee Slider */}
         <div
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          className="relative overflow-hidden py-4 cursor-grab active:cursor-grabbing"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="relative overflow-hidden py-4 w-full"
         >
-          <motion.div
-            animate={{ x: `-${currentIndex * 100}%` }}
-            transition={{ type: 'spring', stiffness: 260, damping: 30 }}
-            className="flex gap-6"
-          >
-            {projects.map((project) => (
+          <div className="animate-infinite-scroll hover:[animation-play-state:paused] gap-6">
+            {doubleProjects.map((project, idx) => (
               <div
-                key={project.id}
-                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0"
+                key={`${project.id}-${idx}`}
+                className="w-[340px] sm:w-[420px] lg:w-[460px] shrink-0"
               >
                 <div
                   className={`glass-panel p-7 rounded-3xl border ${project.borderColor} hover:border-cyber-cyan transition-all group flex flex-col justify-between h-full relative overflow-hidden bg-gradient-to-br ${project.gradient}`}
@@ -336,7 +298,7 @@ export function ProjectsSection() {
 
                     <button
                       onClick={() => setSelectedProject(project)}
-                      className="w-full py-2.5 rounded-xl bg-surface-light hover:bg-cyber-cyan hover:text-black border border-white/10 text-xs font-bold text-white transition-all text-center"
+                      className="w-full py-2.5 rounded-xl bg-surface-light hover:bg-cyber-cyan hover:text-black border border-white/10 text-xs font-bold text-white transition-all text-center cursor-pointer"
                     >
                       View Details & Architecture
                     </button>
@@ -344,21 +306,7 @@ export function ProjectsSection() {
                 </div>
               </div>
             ))}
-          </motion.div>
-        </div>
-
-        {/* Slide Indicator Dots */}
-        <div className="flex items-center justify-center gap-2 mt-8">
-          {projects.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentIndex(idx)}
-              className={`h-2 rounded-full transition-all ${
-                currentIndex === idx ? 'w-8 bg-cyber-cyan' : 'w-2 bg-white/20 hover:bg-white/40'
-              }`}
-              title={`Go to slide ${idx + 1}`}
-            />
-          ))}
+          </div>
         </div>
 
         {/* Modal Popup */}
