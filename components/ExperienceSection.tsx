@@ -36,7 +36,7 @@ export function ExperienceSection() {
     <section id="experience" className="py-24 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header main*/}
         <div className="flex flex-col items-center text-center space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border-cyber-emerald/30 text-xs font-mono text-cyber-emerald">
             <Briefcase className="w-3.5 h-3.5" />
