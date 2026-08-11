@@ -9,6 +9,7 @@ export function Footer() {
   };
 
   return (
+    // footer start
     <footer className="relative z-20 border-t border-surface-border bg-background py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         
