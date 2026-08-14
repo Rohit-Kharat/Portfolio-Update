@@ -51,7 +51,7 @@
   transform: translateY(-2px);
 }
 
-/* Glowing Neon Text */
+/* Glowing Neon Text. */
 .text-gradient-cyan {
   background: linear-gradient(135deg, #00f0ff 0%, #7000ff 100%);
   -webkit-background-clip: text;
