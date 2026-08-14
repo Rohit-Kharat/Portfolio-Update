@@ -88,7 +88,7 @@
   opacity: 0.7;
 }
 
-/* Infinite Circular Marquee Animation */
+/* Infinite Circular Marquee Animation. */
 @keyframes infiniteScroll {
   0% {
     transform: translateX(0);
