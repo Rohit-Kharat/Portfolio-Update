@@ -33,7 +33,7 @@
   box-shadow: 0 0 10px #00f0ff;
 }
 
-/* Custom Glassmorphism Utility */
+/* Custom Glassmorphism Utility. */
 .glass-panel {
   background: rgba(17, 22, 37, 0.65);
   backdrop-filter: blur(16px);
