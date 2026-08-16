@@ -82,7 +82,7 @@ export function HeroSection({ performanceMode }: HeroSectionProps) {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
-      {/* 3D Canvas Background Layer */}
+      {/* 3D Canvas Background Layer. */}
       <CanvasContainer performanceMode={performanceMode} />
 
       {/* Radial Gradient overlay for readability */}
