@@ -85,7 +85,7 @@ export function HeroSection({ performanceMode }: HeroSectionProps) {
       {/* 3D Canvas Background Layer. */}
       <CanvasContainer performanceMode={performanceMode} />
 
-      {/* Radial Gradient overlay for readability */}
+      {/* Radial Gradient overlay for readability. */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background pointer-events-none z-10" />
 
       {/* Main Content Container */}
