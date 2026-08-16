@@ -25,7 +25,7 @@ export function HeroSection({ performanceMode }: HeroSectionProps) {
     'System ready. Type "help" or "skills" for commands.',
   ]);
 
-  // Typing effect logic
+  // Typing effect logic.
   useEffect(() => {
     const currentTitle = titles[titleIndex];
     let timer: NodeJS.Timeout;
