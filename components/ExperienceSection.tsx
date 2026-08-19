@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Briefcase, Calendar, MapPin, CheckCircle2, TrendingUp, ShieldCheck, Zap, Server } from 'lucide-react';
 
 export function ExperienceSection() {
@@ -60,6 +61,20 @@ export function ExperienceSection() {
         >
           {/* Background Decorative Glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-cyber-emerald/10 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Experience Visual */}
+          <div className="relative z-10 mb-8 overflow-hidden rounded-2xl border border-white/10 bg-surface-light/40">
+            <div className="relative aspect-[5/4] w-full">
+              <Image
+                src="/image/2.jpg"
+                alt="Industrial manufacturing experience at Tata Motors"
+                fill
+                priority={false}
+                sizes="(max-width: 640px) 100vw, (max-width: 1280px) 90vw, 1152px"
+                className="object-contain"
+              />
+            </div>
+          </div>
 
           {/* Header Info */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-white/10 relative z-10">

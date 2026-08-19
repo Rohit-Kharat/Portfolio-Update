@@ -168,7 +168,7 @@ export function HeroSection({ performanceMode }: HeroSectionProps) {
               <span className="text-xs font-mono text-slate-400">CONNECT:</span>
               <div className="flex items-center gap-2">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/Rohit-Kharat"
                   target="_blank"
                   rel="noreferrer"
                   className="p-2.5 rounded-lg glass-panel hover:border-cyber-cyan text-slate-300 hover:text-cyber-cyan transition-colors"
@@ -177,7 +177,7 @@ export function HeroSection({ performanceMode }: HeroSectionProps) {
                   <Github className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/rohit-kharat-1b4616316/"
                   target="_blank"
                   rel="noreferrer"
                   className="p-2.5 rounded-lg glass-panel hover:border-cyber-cyan text-slate-300 hover:text-cyber-cyan transition-colors"

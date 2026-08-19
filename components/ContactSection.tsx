@@ -119,7 +119,7 @@ export function ContactSection() {
               {/* Quick Social Buttons */}
               <div className="pt-4 border-t border-white/10 flex items-center gap-3">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/Rohit-Kharat"
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl glass-panel hover:border-cyber-cyan text-slate-200 hover:text-cyber-cyan text-xs font-mono transition-colors"
@@ -128,7 +128,7 @@ export function ContactSection() {
                   <span>GitHub</span>
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/rohit-kharat-1b4616316/"
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl glass-panel hover:border-cyber-cyan text-slate-200 hover:text-cyber-cyan text-xs font-mono transition-colors"
