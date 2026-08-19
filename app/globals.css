@@ -16,7 +16,7 @@
   }
 }
 
-/* Custom Cyber Scrollbar */
+/* Custom Cyber Scrollbar. */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -33,7 +33,7 @@
   box-shadow: 0 0 10px #00f0ff;
 }
 
-/* Custom Glassmorphism Utility */
+/* Custom Glassmorphism Utility. */
 .glass-panel {
   background: rgba(17, 22, 37, 0.65);
   backdrop-filter: blur(16px);
@@ -51,7 +51,7 @@
   transform: translateY(-2px);
 }
 
-/* Glowing Neon Text */
+/* Glowing Neon Text. */
 .text-gradient-cyan {
   background: linear-gradient(135deg, #00f0ff 0%, #7000ff 100%);
   -webkit-background-clip: text;
@@ -70,7 +70,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Glowing Border Effect */
+/* Glowing Border Effect. */
 .glow-border {
   position: relative;
 }
@@ -88,7 +88,7 @@
   opacity: 0.7;
 }
 
-/* Infinite Circular Marquee Animation */
+/* Infinite Circular Marquee Animation. */
 @keyframes infiniteScroll {
   0% {
     transform: translateX(0);

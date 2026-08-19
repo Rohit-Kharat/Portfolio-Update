@@ -25,7 +25,7 @@ export function HeroSection({ performanceMode }: HeroSectionProps) {
     'System ready. Type "help" or "skills" for commands.',
   ]);
 
-  // Typing effect logic
+  // Typing effect logic.
   useEffect(() => {
     const currentTitle = titles[titleIndex];
     let timer: NodeJS.Timeout;
@@ -82,13 +82,13 @@ export function HeroSection({ performanceMode }: HeroSectionProps) {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
-      {/* 3D Canvas Background Layer */}
+      {/* 3D Canvas Background Layer. */}
       <CanvasContainer performanceMode={performanceMode} />
 
-      {/* Radial Gradient overlay for readability */}
+      {/* Radial Gradient overlay for readability. */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background pointer-events-none z-10" />
 
-      {/* Main Content Container */}
+      {/* Main Content Container. */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
